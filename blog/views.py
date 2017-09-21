@@ -163,6 +163,15 @@ class IndexView(ListView):
 
         return data
 
+class TagView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+    
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, pk=self.kwargs.get('pk'))
+        return super(TagView, self).get_queryset().filter(tags=tag)
+
 
 """
 请使用下方包含评论列表和评论表单的详情页视图
