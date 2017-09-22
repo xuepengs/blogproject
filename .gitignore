@@ -52,3 +52,5 @@ MANIFEST
 .mr.developer.cfg
 .project
 .pydevproject
+*.sqlite3
+whoosh_index/
